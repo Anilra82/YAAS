@@ -1,0 +1,35 @@
+{% block content %}
+            <h2>Logged in as {{ full_name }}</h2>
+
+    <form action="/auction/create/" method="post">
+    {% csrf_token %}
+        <label for="title">Title:</label>
+        {% if info %}<br>
+        <label>This field is required.</label><br/>
+        {% endif %}
+        <input type="text" name="title" value="{{ title }}" id="title"><br/>
+        <label for="category">Category:</label>
+    {% if info %}<br>
+        <label>This field is required.</label><br/>
+        {% endif %}
+        <input type="text" name="category" value="{{ category }}" id="category"><br/>
+        <label for="description">Description:</label>
+        <input type="text" name="description" value="{{ desc }}" id="description"><br/>
+        <label for="price">Price:</label>
+    {% if info or pinfo%}<br>
+        <label>{{ pinfo }}</label><br/>
+        <label>This field is required and must be decimal value.</label><br/>
+        {% endif %}
+        <input type="number" name="price" value="{{ price }}" id="price"><br/>
+        <label for="enddate">End date:</label>
+    {% if info or dinfo%}<br>
+        <label>{{ dinfo }}</label><br/>
+        <label>This field is required. And should be in 'YYYY-MM-DD HH:MM' format.</label><br/>
+        {% endif %}
+        <input type="date" name="enddate" value="{{ edate }}" id="enddate"><br/>
+
+        <input type="submit" value="Create">
+
+    </form>
+
+{% endblock %}

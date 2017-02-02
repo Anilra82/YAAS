@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p><b>Title</b></p>
+        <p> {{ b_obj.title }}</p>
+    <p><b>Category</b></p>
+        <p>{{ b_obj.category }}</p>
+    <p><b>Description</b></p>
+        <p>{{ b_obj.description }}</p>
+    <p><b>Price</b></p>
+        <p>{{ b_obj.price }}</p>
+    <p><b>Start Date</b></p>
+        <p> {{ b_obj.startdate }}</p>
+    <p><b>End Date</b></p>
+        <p>{{ b_obj.enddate }}</p>
+    <p><b>Seller</b></p>
+        <p>{{ b_obj.seller }}</p>
+
+    <form action="/auction/bid/{{ b_obj.id }}/">
+     <input type="submit" value="Bid on this item">
+    </form>
+
+{% endblock %}

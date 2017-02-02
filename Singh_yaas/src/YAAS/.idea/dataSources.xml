@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2176589113">
+    <data-source source="LOCAL" name="Django default" uuid="6ab0317d-90c8-4fe7-bd5b-27be3c7ca3ef">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\RAJ\PycharmProjects\YAAS\mydatabase</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

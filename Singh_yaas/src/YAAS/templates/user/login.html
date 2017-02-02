@@ -1,0 +1,21 @@
+
+{% block content %}
+<p><h1>Login to your YAAS account</h1></p>
+
+    {% if form.errors %}
+    <p class="error"> Enter valid username and password.</p>
+    {% endif %}
+
+    <form action="/auction/auth/" method="post">{% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="" id="username"><br/>
+        <label for="password">Password:</label>
+        <input type="password" name="password" value="" id="password"><br/>
+
+        <input type="submit" value="Login">
+
+        <b>Don't have account?</b><a href="/register/">Click here</a>
+
+    </form>
+
+{% endblock %}

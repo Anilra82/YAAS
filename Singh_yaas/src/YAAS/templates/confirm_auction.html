@@ -1,0 +1,18 @@
+
+<form action="/auction/saveauction/" method="post">
+    {% csrf_token %}
+    <p><label for="id_option" >Option:</label>
+    <select name="option">
+        <option value="yes">YES</option>
+        <option value="no">NO</option>
+    </select>
+    </p>
+
+<input type="hidden" name="title" value="{{ title }}">
+    <input type="hidden" name="category" value="{{ category }}">
+    <input type="hidden" name="desc" value="{{ desc }}">
+    <input type="hidden" name="price" value="{{ price }}">
+    <input type="hidden" name="edate" value="{{ edate }}">
+<input type="submit" value="Confirm">
+
+</form>

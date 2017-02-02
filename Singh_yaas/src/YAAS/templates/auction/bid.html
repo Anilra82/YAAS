@@ -1,0 +1,28 @@
+{% block content %}
+        <h2>Logged in as {{ full_name }}</h2>
+        <form action="/auction/bid/{{ auc.id }}/" method="post">{% csrf_token %}
+            <label for="title"><b>Title:</b></label>
+            <p>{{ auc.title }}</p>
+            <label for="category"><b>Category:</b></label>
+            <p>{{ auc.category }}</p>
+            <label for="description"><b>Description:</b></label>
+            <p>{{ auc.description }}</p>
+            <label for="price"><b>Price:</b></label>
+            <p></p>
+            <input type="text" name = "newprice" value="{{ auc.price }}"><br>
+            <p></p>
+            <label for="startdate"><b>Start date:</b></label>
+            <p>{{ auc.startdate }}</p>
+            <label for="enddate"><b>End date:</b></label>
+            <p>{{ auc.enddate }}</p>
+            <label for="seller"><b>Seller:</b></label>
+            <p>{{ auc.seller }}</p>
+
+            <input type="submit" value="Bid">
+
+        </form>
+{% endblock %}
+
+
+{#    <label for="bid">Bid:</label>#}
+{#        <input type="number" name="bid" value="" id="bid"><br/>#}

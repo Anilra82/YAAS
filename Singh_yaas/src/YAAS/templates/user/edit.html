@@ -1,0 +1,12 @@
+{% block content %}
+        <h2>Logged in as {{ full_name }}</h2>
+    {% if form.errors %}
+        {% for error in form.errors %}
+            {{ error.message }}<br/>
+        {% endfor %}
+    {% endif %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Done">
+    </form>
+{% endblock %}

@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+    {% if info %}
+        <p>{{ info }}</p>
+    {% endif %}
+
+    {% if loggedin %}
+        <h2>Logged in as {{ full_name }}</h2>
+        <a href="/logout/"><button>Logout</button></a>
+        <a href="/edituser/"><button>Edit User</button></a>
+        <a href="/auction/create/"><button>Create new auction</button></a>
+
+    {% endif %}
+    <P>Language:</P>
+        <a href="/language/fi/"><button>FI</button></a>
+        <a href="/language/sv/"><button>SV</button></a>
+        <a href="/language/en/"><button>EN</button></a>
+{#    {% include "/search.html" %}#}
+    <form method="POST" action="/auction/search/" >
+    {% csrf_token %}
+    <input type="text" name="word" >
+    <input type="submit" value="Search">
+</form>
+
+    <table style="width:50%">
+        <tr>
+        <th>Auction title</th>
+        <th>Category</th>
+        <th>Start date</th>
+        <th>End date</th>
+        </tr>
+
+        {% for auc in  a_obj %}
+            {% if auc.status == 'active'  %}
+        <tr>
+        <td><a href="/auction/get/{{ auc.id }}/">{{ auc.title }}</a></td>
+        <td>{{ auc.category }}</td>
+        <td>{{ auc.startdate }}</td>
+        <td>{{ auc.enddate }}</td>
+        </tr>
+            {% endif %}
+            {% endfor %}
+    </table>
+
+{% endblock%}

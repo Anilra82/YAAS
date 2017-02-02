@@ -1,0 +1,29 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{% block title %}My Base Template{% endblock %}</title>
+    <style type="text/css">
+            table, th, td {
+        border: 1px solid black;
+        }
+        th, td {
+            text-align: left;
+            }
+    </style>
+</head>
+<body>
+    <div>
+    <a href="/auction/">Articles</a>
+    <a href="/admin/">Admin</a>
+    <a href="/login/">My Account</a>
+    <div id="content">
+    <h2>{%trans "Welcome to home page." %}{{ language }}</h2>
+        {% block content %} This is the Content area.{% endblock %}
+    </div>
+    </div>
+</body>
+</html>
+
+

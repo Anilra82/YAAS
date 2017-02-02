@@ -1,0 +1,16 @@
+{% block content %}
+        <h2>Logged in as {{ full_name }}</h2>
+        <form method="post">{% csrf_token %}
+            <label for="title">Title:</label>
+            <p>{{ title_v }}</p>
+            <label for="category">Category:</label>
+            <p>{{ category_v }}</p>
+            <label for="description">Description:</label>
+            <input type="text" name="description" value="{{ desc_v }}" id="description"><br/>
+            <label for="price">Price:</label>
+            <p>{{ price_v }}</p>
+
+            <input type="submit" value="Update">
+
+        </form>
+{% endblock %}
